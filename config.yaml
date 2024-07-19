@@ -1,0 +1,24 @@
+root_path: example/MSOD # path to the root dir of the dataset
+pred_path: example/MSOD/prediction # path to the dir of prediction masks
+mask: mask # path to the mask
+connection: connection # path to the generated connection mask
+weight: weight # path to the generated weighted mask
+log_dir: log # path to the log files
+exp_name: exp # name of current evaluation
+
+generate_weight: True
+connection_visualize: True # set true to store RGB connection masks
+weight_visualize: True # set true to store RGB weight masks
+normalize: True # set true to divide the rgb mask with 255 to calcualte metrics
+
+epsilon: 50 # denoise parameter
+image_size: 384 # resize image size
+
+metrics:
+  mae: True
+  si_mae: True
+  auc: True
+  si_auc: True
+  f: True
+  si_f: True
+  e: True

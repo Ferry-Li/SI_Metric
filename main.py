@@ -7,6 +7,7 @@ from generate_weight import generate_weight, generate_connection
 from evaluator import SaliencyEvaluator
 from logger import Logger
 import yaml
+from tqdm import tqdm
 
 # python main.py
 
@@ -45,7 +46,7 @@ if __name__ == "__main__":
     for pred_item in tqdm(pred_list, desc="Evaluation ..."):
         name = pred_item.rsplit('.')[0]
         pred = cv2.imread(os.path.join(pred_path, pred_item), 0)
-        gt = cv2.imread(os.path.join(gt_path, name + '.png'), 0) # prediction mask is ended with png
+        gt = cv2.imread(os.path.join(gt_path, name + config["mask_postfix"]), 0) # prediction mask is ended with png
         weight = np.load(os.path.join(weight_path, name + '.npy')) # weight mask is ended with npy
 
         pred = cv2.resize(pred, (config["image_size"], config["image_size"]))

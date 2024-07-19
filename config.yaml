@@ -14,6 +14,8 @@ normalize: True # set true to divide the rgb mask with 255 to calcualte metrics
 epsilon: 50 # denoise parameter
 image_size: 384 # resize image size
 
+mask_postfix: .png
+
 metrics:
   mae: True
   si_mae: True
